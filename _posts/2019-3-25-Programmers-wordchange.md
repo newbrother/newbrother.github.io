@@ -3,7 +3,7 @@ layout: post
 title: '[Programmers] BFS/DFS : 단어변환'
 ---
 
-[완전탐색 : 숫자야구](https://programmers.co.kr/learn/courses/30/lessons/43163)
+[BFS/DFS : 단어변환](https://programmers.co.kr/learn/courses/30/lessons/43163)
 
 ## 풀이
 
