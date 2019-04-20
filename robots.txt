@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://newbrother.github.io/sitemap.xml
