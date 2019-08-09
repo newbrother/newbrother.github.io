@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[SWEA] CodeBattle[레벨업코스] : 2.키조사'
+title: '[SWEA] 코드배틀(레벨업코스) : 2.키조사'
 ---
 
 ## 풀이
