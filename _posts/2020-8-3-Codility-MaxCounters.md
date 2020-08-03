@@ -13,94 +13,42 @@ Respectable난이도로 표기된 문제만 올릴예정.
 
 N+1연산이 나올시 lastMax에 당시 Max값을 임시저장한다음 값이 갱신되거나 마지막에 업데이트를 하는 방식으로
 
-O(M, N)으로 시간복잡도를 줄일 수 있었다.
+O(M+N)으로 시간복잡도를 줄일 수 있었다.
 
 ## 코드
 
 ```cpp
-키조사
+MaxCounters
 
-typedef unsigned long long ulong;
-#define M 1000001
-int arr[M];
- 
-struct Node
-{
-    ulong data;
-    Node* next;
-};
- 
-Node nodePool[1500000];
-int nodeCnt;
- 
-struct List
-{
-    Node* head;
-    Node* tail;
-    Node* ptr;
- 
-    void init() {
-        head = &nodePool[nodeCnt++];
-        tail = head;
-        head->next = tail;
-        tail->next = tail;
-        ptr = head;
-    }
-    void add(ulong d) {
-        Node* temp = &nodePool[nodeCnt++];
-        temp->data = d;
-        temp->next = ptr->next;
-        ptr->next = temp;
-        ptr = temp;
-    }
-};
- 
-List list[M];
- 
-void init()
-{
-    nodeCnt = 0;
-    for (register int i = 0; i < M; i++) {
-        arr[i] = 0;
-    }
-    for (register int i = 0; i < M; i++) {
-        list[i].init();
-    }
-}
-//나누기십만
-//일단 배열 만들고
-//arr에 충돌숫자 기록해둠
-//만약 충돌숫자가 1이상이면
-//해당 
-int checkKey(ulong key)
-{
-    int num = key % M;
-    if (arr[num] > 0) {
-        //리스트 순회해서 찾아봄
-        Node * np = list[num].head;
-        int flag = 0;
-        for (int i = 0; i < arr[num]; i++) {
-            np = np->next;
-            if (key == np->data) {
-                flag = 1;
-                break;
+int arr[100001];
+
+vector<int> solution(int N, vector<int> &A) {
+    vector<int> result;
+    //N+1이 나올때 lastmax에 logging하는것으로 시간복잡도 해결.
+    int lastMax=0;
+    int max=0;
+    int size=A.size();
+    for(int i=0;i<size;i++){
+        if(A[i]==(N+1)){
+            lastMax=max;
+        }else{
+            if(arr[A[i]] < lastMax){
+                arr[A[i]] = lastMax;
+            }
+            arr[A[i]]++;
+            if(arr[A[i]] > max){
+                max = arr[A[i]];
             }
         }
-        //겹치는게 존재
-        if (flag) {
-            return 0;
-        }
-        //겹치는게 없음
-        else {
-            arr[num]++;
-            list[num].add(key);
-            return 1;
+    }
+    //result벡터로 정답을 옮겨주며, 갱신안된 숫자들은 lastMax로 아직 변경안되었으므로 해당작업 수행
+    for(int i=1;i<=N;i++){
+        if(arr[i] < lastMax){
+            result.push_back(lastMax);
+        }else{
+            result.push_back(arr[i]);
         }
     }
-    else {
-        arr[num] = 1;
-        list[num].add(key);
-        return 1;
-    }
+    return result;
 }
 ```
