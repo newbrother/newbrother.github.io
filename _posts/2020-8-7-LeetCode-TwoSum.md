@@ -78,8 +78,8 @@ public:
 ```
 
 
-```
-0ms나오는 
+```cpp
+0ms 
 
 class Solution {
 public:
