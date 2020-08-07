@@ -14,7 +14,8 @@ title: '[LeetCode] easy : Two Sum'
 정렬을 수행안하는 unordered_map은 해싱기반이라 O(n)이다.
 
 이풀이가 상위15%이므로 더좋은 풀이도 존재한다.
-아마 unordered_map을 해싱처럼 사용을 하거나 직접 큰소수만큼 해시테이블잡고 계산하면 더 빠를것같다.
+unordered_map 1개로 입력과 서치를 동시에 수행하는 것이 더좋은 풀이이다.
+아래에 0초 코드를 같이 적어두었다.
 
 내풀이는 그냥 메모이제이션 처럼
 unordered_map 2개를  nums[i]:빈도 , nums[i]:마지막idx 로 키밸류쌍을 잡아주고 값을 넣어준 다음에 
@@ -72,6 +73,28 @@ public:
         }
         
         return sol;
+    }
+};
+```
+
+
+```
+0ms나오는 
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int m = nums.size();
+        if(m <= 1)return {};
+        unordered_map<int,int> mp;
+        for(int i = 0; i < m; ++i){
+            if(mp.count(target-nums[i]) != 0){
+                return {mp[target-nums[i]],i};
+            }else{
+                mp[nums[i]] = i;
+            }
+        }
+        return {};
     }
 };
 ```
