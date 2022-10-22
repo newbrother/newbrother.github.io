@@ -120,15 +120,19 @@ $(document).ready(function() {
 		} else {
 			$("#contents").append(name + ". " + content[0] + "<br />");
 			$("#contents").append("<input type='text' name='ck" + name + "' />");
-			$("#contents").append("<br />");
+			$("#contents").append("<br />"+"<br />");
 		}
 	});
-	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
+	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />");
+	$("#contents").append("<input type='button' value='이전날짜로' onclick='goPrev()' /><br />");
 	$("#contents").append("<input type='button' value='다음날짜로' onclick='goNext()' /><br />");
 	result = $(".quiz_result").text().trim().split(",");
 });
 function goNext(){
 		location.href = "https://newbrother.github.io/quiz3.html";
+}
+function goPrev(){
+	location.href = "https://newbrother.github.io/quiz.html";
 }
 	
 function getResult() {
