@@ -1,6 +1,8 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <meta charset="UTF-8">
 
+<h1>수요일, 전자증권법</h1>
+
 <div style="display:none" class="quiz">
 	의무전자등록 기관이 아닌것은?
 	1) 상장주식
@@ -86,9 +88,13 @@ $(document).ready(function() {
 		}
 	});
 	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
+	$("#contents").append("<input type='button' value='다음날짜로' onclick='goNext()' /><br />");
 	result = $(".quiz_result").text().trim().split(",");
 });
-
+function goNext(){
+		var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+}
+	
 function getResult() {
 	var scoreCnt = 0;
 	$(".quiz").filter(function(idx) {
