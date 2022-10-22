@@ -1,0 +1,74 @@
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<meta charset="UTF-8">
+
+<div style="display:none" class="quiz">
+	1+1은?
+	1) 2
+	2) 3
+	3) 4
+</div>
+
+
+<div style="display:none" class="quiz">
+	전자정부프레임 워크 언어는?
+	1) 자바(Java)
+	2) C#
+	3) 파이썬(Python)
+</div>
+
+
+<div style="display:none" class="quiz">
+	(주관식) 1 + 9 * 10
+</div>
+
+
+<div style="display:none" class="quiz_result">
+	1,1,91
+</div>
+
+
+<div id="contents">
+</div>
+
+
+<script>
+var quizCnt = 0;
+var result = 0;
+$(document).ready(function() {
+	$(".quiz").filter(function(idx) {
+		quizCnt++;
+		var name = 1 + idx;
+		var content = this.innerHTML.trim().split("\n");
+		if(content.length > 1) {
+			$("#contents").append(name + ". " + content[0] + "<br />");
+			for(var i = 1 ; i < content.length ; i++) {
+				$("#contents").append("<input type='radio' name='ck" + name + "' id='ck" + name + "_" + i + "' value='" + i + "' /><label for='ck" + name + "_" + i + "'>" + content[i] + "</label><br />");
+			}
+			$("#contents").append("<br />");
+		} else {
+			$("#contents").append(name + ". " + content[0] + "<br />");
+			$("#contents").append("<input type='text' name='ck" + name + "' />");
+		}
+	});
+	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
+	result = $(".quiz_result").text().trim().split(",");
+});
+
+function getResult() {
+	var scoreCnt = 0;
+	$(".quiz").filter(function(idx) {
+		var name = 1 + idx;
+		var content = this.innerHTML.trim().split("\n");
+		var ck_val;
+		if(content.length > 1) {
+			ck_val = ($("input[name=ck" + name + "]:checked").val() == undefined) ? "" :  $("input[name=ck" + name + "]:checked").val();
+		} else {
+			ck_val = ($("input[name=ck" + name + "]").val() == undefined) ? "" :  $("input[name=ck" + name + "]").val();
+		}
+		if(String(result[idx]) == String(ck_val)) {
+			scoreCnt++;
+		}
+	});
+	alert(scoreCnt + "개 정답(" + (Math.round(scoreCnt / quizCnt * 100)) + "점)");
+}
+</script>
