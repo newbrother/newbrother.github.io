@@ -14,19 +14,16 @@
 
 <div style="display:none" class="quiz">
 	(주관식) 전자증권제도의 계좌구조 중 발행인관리계좌와 계좌관리기관계좌등 자기계좌 고객관리계좌부를 관리하는 기관을 지칭하는 말은? hint.ㅈㅈㄷㄹㄱㄱ
-<br />
 </div>
 
 
 <div style="display:none" class="quiz">
 	(주관식) 고객관리계좌를 관리하는 기관은? hint.ㄱㅈㄱㄹㄱㄱ
-<br />
 </div>
 
 
 <div style="display:none" class="quiz">
 	(주관식) 전자증권제도의 적용대상에 해당하는 것은? hint.ㅈㅅㄷ
-	
 </div>
 
 
@@ -34,7 +31,6 @@
 <div style="display:none" class="quiz">
 	(주관식) 이미 주권이 발행된 주식을 전자등록 할때에 주권을 제출하지 않은 권리자들을 위해 기준일 직전 영업일 기준 주주명부 기재된 권리자 명의로 개설하는 계좌는? hint.ㅌㅂㄱㅈ
 </div>
-<br />
 
 <div style="display:none" class="quiz">
 	계좌개설자의 범위가 틀린것은?
@@ -88,6 +84,7 @@ $(document).ready(function() {
 		} else {
 			$("#contents").append(name + ". " + content[0] + "<br />");
 			$("#contents").append("<input type='text' name='ck" + name + "' />");
+			$("#contents").append("<br />");
 		}
 	});
 	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
@@ -95,7 +92,7 @@ $(document).ready(function() {
 	result = $(".quiz_result").text().trim().split(",");
 });
 function goNext(){
-		var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+		location.href = "quiz4.html";
 }
 	
 function getResult() {
