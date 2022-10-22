@@ -116,9 +116,17 @@ $(document).ready(function() {
 			$("#contents").append("<br />");
 		}
 	});
-	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
+	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />");
+	$("#contents").append("<input type='button' value='이전날짜로' onclick='goPrev()' /><br />");
+	$("#contents").append("<input type='button' value='첫날로' onclick='goNext()' /><br />");
 	result = $(".quiz_result").text().trim().split(",");
 });
+function goNext(){
+		location.href = "https://newbrother.github.io/quiz.html";
+}
+function goPrev(){
+	location.href = "https://newbrother.github.io/quiz4.html";
+}
 	
 function getResult() {
 	var scoreCnt = 0;
