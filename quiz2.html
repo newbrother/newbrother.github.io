@@ -1,0 +1,115 @@
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<meta charset="UTF-8">
+
+<h1>화요일, 자본시장법(2)</h1>
+
+<div style="display:none" class="quiz">
+	의무전자등록 기관이 아닌 것은?
+	1) 상장주식
+	2) 상장사채
+	3) 투자신탁의 수익권
+	4) 투자회사의 주식
+	5) 비상장증권
+</div>
+
+<div style="display:none" class="quiz">
+	(주관식) 전자증권제도의 계좌구조 중 발행인관리계좌와 계좌관리기관계좌등 자기계좌 그리고 고객관리계좌를 관리하는 기관을 지칭하는 말은? hint.ㅈㅈㄷㄹㄱㄱ
+</div>
+
+
+<div style="display:none" class="quiz">
+	(주관식) 고객계좌를 관리하는 기관은? hint.ㄱㅈㄱㄹㄱㄱ
+</div>
+
+
+<div style="display:none" class="quiz">
+	(주관식) 전자증권제도의 적용대상에 해당하는 것은? hint.ㅈㅅㄷ
+</div>
+
+
+
+<div style="display:none" class="quiz">
+	(주관식) 이미 주권이 발행된 주식을 전자등록 할때에 주권을 제출하지 않은 권리자들을 위해 기준일 직전 영업일 기준 주주명부 기재된 권리자 명의로 개설하는 계좌는? hint.ㅌㅂㄱㅈ
+</div>
+
+<div style="display:none" class="quiz">
+	계좌개설자의 범위가 틀린 것은?
+	1)계좌관리기관이 전자등록기관에 자기계좌 개설
+	2)계좌관리기관이 전자등록기관에 고객관리계좌 개설
+	3)고객이 계좌관리기관에 고객계좌 개설
+	4)고객이 전자등록기관에 자기계좌 개설(ex 직접등록계좌)
+	5)전자등록기관이 계좌관리기관에 자기계좌 개설
+</div>
+
+<div style="display:none" class="quiz">
+     전자등록 관련 내용 중 틀린것은?
+     1)종목별 최초로 전자등록 신청하는 경우 사전심사는 의무적으로 해야한다
+     2)전자등록계좌부에 등록된 자는 등록된 수량과 금액에 대한 공유지분을 가진다
+     3)전자등록된 증권에 대해서는 실물발행 금지다
+     4)전자등록된 주식에 대해서 예탁제도와 달리 실질주주명부가 부존재한다 즉 주주명부 일원화다. 
+</div>
+
+<div style="display:none" class="quiz">
+	전자증권 권리자의 권리행사방법에 대해서 틀린 것은?
+	1) 소유자증명서, 소유내용통지제도가 마련되어 있다. 
+	2) 전자등록기관을 통해 소유자증명서를 발급하면 명의개서 없이도 회사에 권리행사 가능하다. 
+	3) 소유자증명서를 발급하면 소유자증명서 반환시까지 처분제한이걸린다. 
+	4) 소유내용의 통지는 유효기간 만료시까지만 처분제한이다. 
+	5) 위의 내용 중 틀린게 없다
+</div>
+
+<div style="display:none" class="quiz_result">
+	5,전자등록기관,계좌관리기관,주식등,특별계좌,5,2,5
+</div>
+
+
+<div id="contents">
+</div>
+
+
+<script>
+var quizCnt = 0;
+var result = 0;
+$(document).ready(function() {
+	$(".quiz").filter(function(idx) {
+		quizCnt++;
+		var name = 1 + idx;
+		var content = this.innerHTML.trim().split("\n");
+		if(content.length > 1) {
+			$("#contents").append(name + ". " + content[0] + "<br />");
+			for(var i = 1 ; i < content.length ; i++) {
+				$("#contents").append("<input type='radio' name='ck" + name + "' id='ck" + name + "_" + i + "' value='" + i + "' /><label for='ck" + name + "_" + i + "'>" + content[i] + "</label><br />");
+			}
+			$("#contents").append("<br />");
+		} else {
+			$("#contents").append(name + ". " + content[0] + "<br />");
+			$("#contents").append("<input type='text' name='ck" + name + "' />");
+			$("#contents").append("<br />");
+		}
+	});
+	$("#contents").append("<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br />");
+	$("#contents").append("<input type='button' value='다음날짜로' onclick='goNext()' /><br />");
+	result = $(".quiz_result").text().trim().split(",");
+});
+function goNext(){
+		location.href = "https://newbrother.github.io/quiz3.html";
+}
+	
+function getResult() {
+	var scoreCnt = 0;
+	$(".quiz").filter(function(idx) {
+		var name = 1 + idx;
+		var content = this.innerHTML.trim().split("\n");
+		var ck_val;
+		if(content.length > 1) {
+			ck_val = ($("input[name=ck" + name + "]:checked").val() == undefined) ? "" :  $("input[name=ck" + name + "]:checked").val();
+		} else {
+			ck_val = ($("input[name=ck" + name + "]").val() == undefined) ? "" :  $("input[name=ck" + name + "]").val();
+		}
+		if(String(result[idx]) == String(ck_val)) {
+			scoreCnt++;
+		}
+	});
+	alert(scoreCnt + "개 정답(" + (Math.round(scoreCnt / quizCnt * 100)) + "점)");
+}
+</script>
