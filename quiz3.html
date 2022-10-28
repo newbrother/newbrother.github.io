@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <meta charset="UTF-8" />
 
-<h1>단답형모음3-청산결제,집합투자</h1>
+<h1>단답형모음3-청산결제(5),집합투자(5) 띄어쓰지마세요</h1>
 <div style="display: none" class="quiz">
     (6자)매매확인 방법 중 하나로 채권기관투자자결제시 사용하며, 매도자/매수자가 각각 거래내역을 보고하여 상호 대조하는 방법은?
 </div>
@@ -77,7 +77,10 @@
       }
     });
     $("#contents").append(
-      "<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />"
+      "<br /><br /><br /><input type='button' value='점수보기' onclick='getResult()' />"
+    );
+	$("#contents").append(
+      "<br /><br /><input type='button' value='정답보기' onclick='getDap()' /><br /><br />"
     );
     $("#contents").append(
       "<input type='button' value='이전날짜로' onclick='goPrev()' /><br />"
@@ -93,7 +96,9 @@
   function goPrev() {
     location.href = "https://newbrother.github.io/quiz2.html";
   }
-
+  function getDap(){
+	alert(result);
+  }
   function getResult() {
     var scoreCnt = 0;
     $(".quiz").filter(function (idx) {
