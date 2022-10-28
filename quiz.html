@@ -1,8 +1,19 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <meta charset="UTF-8" />
 
-<h1>단답형모음1-주식권리(공부중),채권권리</h1>
-
+<h1>단답형모음1-주식권리(4),채권권리(6)</h1>
+<div style="display: none" class="quiz">
+	(6자)유상증자시 주주의 추상적 권리를 구체적 권리로 표창하는 유가증권은?
+</div>
+<div style="display: none" class="quiz">
+	(5자)다른 종류의 주식으로 전환될 수 있는 권리를 가진 우선주로 일정기간 후 보통주로 전환가능한 것은?
+</div>
+<div style="display: none" class="quiz">
+	(6자)별도 권리 기준일 설정되지 않았을 때 주주명부에 등재되지 않은 상태에서도 소유자가 발행사에 소수주주권등 행사할 수 있도록 예탁결제원이 발행하는 증명서는?
+</div>
+<div style="display: none" class="quiz">
+	(4자)분할되는 회사가 신설회사 주식을 100% 보유하여 분할 하는 것은?
+</div>
 <div style="display: none" class="quiz">
 	(8자)2005.7.1이후 시행한 제도로 채권의 보유기간에 따라 세금을 매기는 제도는?
 </div>
@@ -23,7 +34,7 @@
 </div>
 	
 <div style="display: none" class="quiz_result">
-	보유기간과세제도,통합발행제도,어음교환제도,변동금리부국고채,매매결제분재확정,실기채권
+	신주인수권증서,전환우선주,소유자증명서,물적분할,보유기간과세제도,통합발행제도,어음교환제도,변동금리부국고채,매매결제분재확정,실기채권
 </div>
 
 <div id="contents"></div>
@@ -65,7 +76,10 @@
       }
     });
     $("#contents").append(
-      "<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />"
+      "<br /><br /><br /><input type='button' value='점수보기' onclick='getResult()' /><br /><br />"
+    );
+	$("#contents").append(
+      "<br /><br /><input type='button' value='정답보기' onclick='getDap()' /><br /><br />"
     );
     $("#contents").append(
       "<input type='button' value='다음날짜로' onclick='goNext()' /><br />"
@@ -75,7 +89,9 @@
   function goNext() {
     location.href = "https://newbrother.github.io/quiz2.html";
   }
-
+  function getDap(){
+	alert(result);
+  }
   function getResult() {
     var scoreCnt = 0;
     $(".quiz").filter(function (idx) {
