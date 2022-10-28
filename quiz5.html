@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <meta charset="UTF-8" />
 
-<h1>단답형모음5-IT</h1>
+<h1>단답형모음5-IT, 띄어쓰지마세요</h1>
 
 <div style="display: none" class="quiz">
 	(2자)시스템의 효과성,효율성,가용성 및 생산성을 결정하는 요소는?
@@ -16,11 +16,23 @@
 	(5자)집합투자, 유통등록, 결제..등 대부분의 업무를 하는 CCF의 통신망은?
 </div>
 <div style="display: none" class="quiz">
-	(8자)금융위에서 규정한 제11조(전산실 등에 관한 사항) 및 제23조(비상대책 등의 수립운영)을 포함하고 있는 규정은?
+	(8자)금감원 검사를 받는 기관의 정보보호기술 부문 안정성 확보 등을 위해 필요한 사항을 규정하며, 금융위에서 규정한 제11조(전산실 등에 관한 사항) 및 제23조(비상대책 등의 수립운영)을 포함하고 있는 규정은?
+</div>
+<div style="display: none" class="quiz">
+	(3자,영어대문자)수단 방법을 가리지 않는 지능화 되고 지속적 해킹 공격 행태는?
+</div>
+<div style="display: none" class="quiz">
+	(4자)업무 파일을 암호화 해버리는 악성프로그램은?
+</div>
+<div style="display: none" class="quiz">
+	(4자,영어대문자)분산서비스거부 공격을 일컫는 말은?
+</div>
+<div style="display: none" class="quiz">
+	(4자)우리회사에서 사용하는 망간 자료전송 시스템 이름은?
 </div>
 
 <div style="display: none" class="quiz_result">
-	성능,프로젝트,ITMS,예탁결제망,전자금융감독규정
+	성능,프로젝트,ITMS,예탁결제망,전자금융감독규정,APT,랜섬웨어,DDOS,파일무버
 </div>
 
 <div id="contents"></div>
@@ -62,7 +74,10 @@
       }
     });
     $("#contents").append(
-      "<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />"
+      "<br /><br /><br /><input type='button' value='점수보기' onclick='getResult()' />"
+    );
+	$("#contents").append(
+      "<br /><br /><input type='button' value='정답보기' onclick='getDap()' /><br /><br />"
     );
     $("#contents").append(
       "<input type='button' value='이전날짜로' onclick='goPrev()' /><br />"
@@ -78,7 +93,9 @@
   function goPrev() {
     location.href = "https://newbrother.github.io/quiz4.html";
   }
-
+  function getDap(){
+	alert(result);
+  }
   function getResult() {
     var scoreCnt = 0;
     $(".quiz").filter(function (idx) {
