@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <meta charset="UTF-8" />
 
-<h1>단답형모음4-대차/레포,국제(공부중)</h1>
+<h1>단답형모음4-대차/레포(5),국제(5) 띄어쓰지마세요</h1>
 
 <div style="display: none" class="quiz">
 	(숫자)신용대주제도에서 위탁증거금 형식으로 담보제공하는 대주매각대금의 담보비율은?
@@ -18,9 +18,24 @@
 <div style="display: none" class="quiz">
 	(9자)RFR산출 공시업무의 중요한 의사결정을 하는 위원회이며, 엄격한 내부통제가 적용되고 우리회사 의사결정제도와 독립된 것은? 
 </div>
+<div style="display: none" class="quiz">
+	(8자,영어대문자) 국제사법위원회로 국제 사법 및 상법의 현대화와 통일은 연구하는 국제기구는?
+</div>
+<div style="display: none" class="quiz">
+	(9자)금융기관을 통한 간접보유증권의 권리와 처분의 준거법에 대한 협약은?
+</div>
+<div style="display: none" class="quiz">
+	(6자)금투업 규정에 의해 우리회사가 안전한 외화증권투자지원을 위해 선임하는 기관으로 보관규모 100억달러 이상 국제증권 전문보관기관등의 조건이 있는 기관은?
+</div>
+<div style="display: none" class="quiz">
+	(5자,영어대문자)외국환거래의 데이터통신망을 구축하기 위하여 설립된 국제협회 혹은 그 메세지 포맷으로 최근 ISO 20022로 전환 되고 있는 것은?
+</div>
+<div style="display: none" class="quiz">
+	(6자)증권사가 예탁원통해 외국보관기관에 전용계좌개설시 자사와 타사를 분리해 보관하는 방식은?
+</div>
 
 <div style="display: none" class="quiz_result">
-	140,대이행,현금성자산의무보유비율제도,GCFREPO,중요지표관리위원회
+	140,대이행,현금성자산의무보유비율제도,GCFREPO,중요지표관리위원회,UNIDROIT,헤이그유가증권협약,적격보관기관,SWIFT,전용계좌방식
 </div>
 
 <div id="contents"></div>
@@ -62,7 +77,10 @@
       }
     });
     $("#contents").append(
-      "<br /><br /><br /><input type='button' value='결과보기' onclick='getResult()' /><br /><br />"
+      "<br /><br /><br /><input type='button' value='점수보기' onclick='getResult()' />"
+    );
+	$("#contents").append(
+      "<br /><br /><input type='button' value='정답보기' onclick='getDap()' /><br /><br />"
     );
     $("#contents").append(
       "<input type='button' value='이전날짜로' onclick='goPrev()' /><br />"
@@ -78,7 +96,9 @@
   function goPrev() {
     location.href = "https://newbrother.github.io/quiz3.html";
   }
-
+  function getDap(){
+	alert(result);
+  }
   function getResult() {
     var scoreCnt = 0;
     $(".quiz").filter(function (idx) {
