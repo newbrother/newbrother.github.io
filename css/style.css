@@ -5,3 +5,11 @@ h2 {
         font-size:2em;width:90%;
     margin-bottom:30px;margin-left:20px;padding-bottom:10px;border-bottom:4px solid black;
 }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-gap: 1rem;
+  margin-bottom:30px;margin-left:20px;padding-bottom:10px;
+}
